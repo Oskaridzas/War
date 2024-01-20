@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
     
     public Rigidbody2D zombie;
     public float speed;
+    
 
 
     // Update is called once per frame
@@ -16,4 +17,6 @@ public class Movement : MonoBehaviour
         zombie.velocity = Vector2.left * speed;
 
     }
+
+    
 }
