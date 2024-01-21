@@ -7,7 +7,8 @@ public class Health : MonoBehaviour
 {
     public int health;
     public int maxHealth= 50;
-    
+   
+
 
     void Start()
     {
@@ -16,7 +17,7 @@ public class Health : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
 
@@ -25,4 +26,5 @@ public class Health : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
 }
