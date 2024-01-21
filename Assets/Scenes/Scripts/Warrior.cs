@@ -1,28 +1,27 @@
+// Warrior.cs
+// Warrior.cs
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Warrior : MonoBehaviour
 {
-    public GameObject WarriorPrefab;
+    public Script arrowPrefab;
     public float cooldown = 2.5f;
-    private float timer;
-    // Start is called before the first frame update
-    void Start()
-    {
-        timer = cooldown;
-    }
+    private bool canShoot = true;
 
-    // Update is called once per frame
     void Update()
     {
-        if (timer <= 0)
+        if (canShoot)
         {
-            Instantiate(WarriorPrefab, transform.position, Quaternion.identity);
-            timer = cooldown;
-
-
+            StartCoroutine(ShootArrowWithCooldown());
         }
-        timer -= Time.deltaTime;
+    }
+
+    IEnumerator ShootArrowWithCooldown()
+    {
+        canShoot = false; // Prevent shooting during cooldown
+        Instantiate(arrowPrefab, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(cooldown);
+        canShoot = true; // Allow shooting after cooldown
     }
 }

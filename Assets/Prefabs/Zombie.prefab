@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 2142384619921830349}
   - component: {fileID: 2330179950181295517}
   - component: {fileID: 7353329489325616672}
-  - component: {fileID: 7845107250120150193}
   - component: {fileID: 1186995241842682019}
-  - component: {fileID: 4255781668653687925}
-  - component: {fileID: 8212009071120092560}
+  - component: {fileID: 5974367339999624902}
+  - component: {fileID: 5810536715064949939}
+  - component: {fileID: 556380044326956394}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.26, y: -3.5, z: 0}
-  m_LocalScale: {x: 0.7852747, y: 0.585522, z: 1}
+  m_LocalScale: {x: 0.849739, y: 0.49119443, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -134,20 +134,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4371428, y: 2.2857144}
   m_EdgeRadius: 0
---- !u!114 &7845107250120150193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2181870919868523277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65602028550a0674e9f69a1c97d10d06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zombie: {fileID: 1186995241842682019}
-  speed: 1.5
 --- !u!50 &1186995241842682019
 Rigidbody2D:
   serializedVersion: 4
@@ -175,7 +161,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4255781668653687925
+--- !u!114 &5974367339999624902
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,8 +173,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96afaf011d5c70f40a93cd91fec77d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
---- !u!114 &8212009071120092560
+  damage: 25
+--- !u!114 &5810536715064949939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2181870919868523277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65602028550a0674e9f69a1c97d10d06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombie: {fileID: 1186995241842682019}
+  speed: 2
+--- !u!114 &556380044326956394
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -201,7 +201,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 0
-  delayTime: 2
-  movement: {fileID: 7845107250120150193}
-  movement1: {fileID: 0}
+  maxHealth: 50
+  delayTime: 0.15
+  Movement: {fileID: 0}
