@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
@@ -10,36 +10,31 @@ public class EnemyHealth : MonoBehaviour
 
     void Start()
     {
-        health = maxHealth;
+        health = maxHealth; // Pradinėje funkcijoje nustatomas objekto sveikatos lygis pagal maksimalią sveikatą
 
         // Set the Movement component manually if needed
-        SetMovementComponent(GetComponent<Movement>());
+        SetMovementComponent(GetComponent<Movement>());     // Nustatoma Judėjimo komponento rankiniu būdu, jei reikia
     }
 
-    // Set the Movement component manually if needed
-    public void SetMovementComponent(Movement movementComponent)
+    public void SetMovementComponent(Movement movementComponent) //// Rankiniu būdu nustato Judėjimo komponentą, jei reikia
     {
-        movement = movementComponent;
+        movement = movementComponent; // Nustatomas Judėjimo komponentas
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        // Any logic you want to add here...
-    }
+    
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage) // Funkcija, skirta apdoroti damage
     {
         Debug.Log("Enemy taking damage: " + damage);
-        health -= damage;
+        health -= damage;// Atimama žala nuo priešo sveikatos
 
-        if (health <= 0)
+        if (health <= 0) // Tikrinama, ar priešo sveikata mažesnė arba lygi nuliui
         {
-            StartCoroutine(DestroyEnemy());
+            StartCoroutine(DestroyEnemy()); // Jei taip, pradedamas priešo sunaikinimas
         }
         else
         {
-            StartCoroutine(KnockbackDelay());
+            StartCoroutine(KnockbackDelay()); // Jei ne, inicijuojama atšokio atidėlio procedūra
         }
     }
 
@@ -47,17 +42,17 @@ public class EnemyHealth : MonoBehaviour
     {
         if (movement != null)
         {
-            movement.enabled = false;
-            yield return new WaitForSeconds(delayTime);
+            movement.enabled = false; //Išjungiamas Judėjimo komponentas
+            yield return new WaitForSeconds(delayTime); //// Laukiama tam tikro laiko
         }
 
         Debug.Log("Enemy destroyed");
-        Destroy(gameObject);
+        Destroy(gameObject); //Sunaikinamas priešo objektas
     }
 
     IEnumerator KnockbackDelay()
     {
-        // Implement your knockback delay logic here
+        
         yield return null;
     }
 }

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
     void FixedUpdate ()
     {
         
-        zombie.velocity = Vector2.left * speed;
+        zombie.velocity = Vector2.left * speed; // Nustatoma Zombio judėjimo greitis į kairę (left) pagal nurodytą greitį
 
     }
 
